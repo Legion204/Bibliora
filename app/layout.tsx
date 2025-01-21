@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
         className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}
       >
