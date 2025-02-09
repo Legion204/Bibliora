@@ -75,10 +75,16 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload></ImageUpload>
+                      <ImageUpload onFileChange={field.onChange} />
                     ) : (
-                      <Input required type={FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]} {...field} 
-                      className="form-input"/>
+                      <Input
+                        required
+                        type={
+                          FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]
+                        }
+                        {...field}
+                        className="form-input"
+                      />
                     )}
                   </FormControl>
                   <FormMessage />
@@ -86,7 +92,9 @@ const AuthForm = <T extends FieldValues>({
               )}
             />
           ))}
-          <Button type="submit" className="form-btn">{isSignIn? "Sign In":"Sign Up"}</Button>
+          <Button type="submit" className="form-btn">
+            {isSignIn ? "Sign In" : "Sign Up"}
+          </Button>
         </form>
       </Form>
       <p className="text-center text-base font-medium">
